@@ -57,6 +57,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>WTF_PLATFORM_WINDOWS;_WINDLL;WTF_BUILD_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)WTEngine\vendor\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -68,6 +69,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>WTF_PLATFORM_WINDOWS;_WINDLL;WTF_BUILD_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)WTEngine\vendor\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -79,9 +81,11 @@
     <ClInclude Include="src\WTEngine\Core.h" />
     <ClInclude Include="src\WTEngine.h" />
     <ClInclude Include="src\WTEngine\EntryPoint.h" />
+    <ClInclude Include="src\WTEngine\Log.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\WTEngine\Application.cpp" />
+    <ClCompile Include="src\WTEngine\Log.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

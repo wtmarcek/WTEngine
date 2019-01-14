@@ -1,0 +1,3 @@
+[submodule "WTEngine/vendor/spdlog"]
+	path = WTEngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog
