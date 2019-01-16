@@ -4,6 +4,9 @@
     <Filter Include="WTEngine">
       <UniqueIdentifier>{E65423B1-D221-7EBC-FB3A-6C64E766B34A}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WTEngine\Events">
+      <UniqueIdentifier>{0AC23754-764D-A518-7F5E-280DEB680119}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\WTEngine.h" />
@@ -16,9 +19,22 @@
     <ClInclude Include="src\WTEngine\EntryPoint.h">
       <Filter>WTEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\WTEngine\Events\ApplicationEvent.h">
+      <Filter>WTEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WTEngine\Events\Event.h">
+      <Filter>WTEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WTEngine\Events\KeyEvent.h">
+      <Filter>WTEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WTEngine\Events\MouseEvent.h">
+      <Filter>WTEngine\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\WTEngine\Log.h">
       <Filter>WTEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\wtfpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\WTEngine\Application.cpp">
@@ -27,5 +43,6 @@
     <ClCompile Include="src\WTEngine\Log.cpp">
       <Filter>WTEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\wtfpch.cpp" />
   </ItemGroup>
 </Project>

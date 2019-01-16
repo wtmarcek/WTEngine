@@ -1,6 +1,10 @@
 #pragma once
 
+#include "wtfpch.h"
 #include "Application.h"
+
+#include "WTEngine/Events/ApplicationEvent.h"
+#include "WTEngine/Log.h"
 
 namespace WTF {
 
@@ -14,6 +18,9 @@ namespace WTF {
 
 	void Application::Run()
 	{
-		while (true);
+		WindowResizeEvent windowResizeEvent(1280, 720);
+		WTF_TRACE(windowResizeEvent);
+
+		std::cin;
 	}
 }
