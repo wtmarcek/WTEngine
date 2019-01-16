@@ -10,6 +10,12 @@ workspace "WTEngine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "WTEngine/vendor/GLFW/include"
+
+include "WTEngine/vendor/GLFW"
+
 project "WTEngine"
 	location "WTEngine"
 	kind "SharedLib"
@@ -30,7 +36,14 @@ project "WTEngine"
 	includedirs
 	{
 		"%{prj.name}/vendor/spdlog/include",
-		"%{prj.name}/src"
+		"%{prj.name}/src",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -42,6 +55,7 @@ project "WTEngine"
 		{
 			"WTF_PLATFORM_WINDOWS",
 			"WTF_BUILD_DLL"
+			--"WTF_ENABLE_ASSERTS"
 		}
 
 		postbuildcommands
