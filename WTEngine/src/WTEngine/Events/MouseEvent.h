@@ -77,6 +77,7 @@ namespace WTF {
 
 	class WTEngine_API MouseButtonReleasedEvent : public MouseButtonEvent
 	{
+	public:
 		MouseButtonReleasedEvent(int button)
 			: MouseButtonEvent(button) {}
 

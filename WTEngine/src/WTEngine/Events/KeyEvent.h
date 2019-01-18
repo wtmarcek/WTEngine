@@ -51,7 +51,7 @@ namespace WTF {
 		{
 			std::stringstream ss;
 			ss << "KeyRealesedEvent: " << m_KeyCode;
-			ss.str();
+			return ss.str();
 		}
 
 		EVENT_CLASS_TYPE(KeyReleased)
