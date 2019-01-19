@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
     <Filter Include="WTEngine">
       <UniqueIdentifier>{E65423B1-D221-7EBC-FB3A-6C64E766B34A}</UniqueIdentifier>
     </Filter>
     <Filter Include="WTEngine\Events">
       <UniqueIdentifier>{0AC23754-764D-A518-7F5E-280DEB680119}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WTEngine\Layers">
+      <UniqueIdentifier>{E5AC1A63-5138-8827-5A49-0B1CC653E427}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\WTEngine.h" />
     <ClInclude Include="src\WTEngine\Application.h">
       <Filter>WTEngine</Filter>
@@ -31,21 +43,36 @@
     <ClInclude Include="src\WTEngine\Events\MouseEvent.h">
       <Filter>WTEngine\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\WTEngine\Layers\Layer.h">
+      <Filter>WTEngine\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WTEngine\Layers\LayerStack.h">
+      <Filter>WTEngine\Layers</Filter>
+    </ClInclude>
     <ClInclude Include="src\WTEngine\Log.h">
       <Filter>WTEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\WTEngine\Window.h">
+      <Filter>WTEngine</Filter>
+    </ClInclude>
     <ClInclude Include="src\wtfpch.h" />
-    <ClInclude Include="src\WTEngine\Window.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\WTEngine\Application.cpp">
       <Filter>WTEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WTEngine\Layers\Layer.cpp">
+      <Filter>WTEngine\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WTEngine\Layers\LayerStack.cpp">
+      <Filter>WTEngine\Layers</Filter>
     </ClCompile>
     <ClCompile Include="src\WTEngine\Log.cpp">
       <Filter>WTEngine</Filter>
     </ClCompile>
     <ClCompile Include="src\wtfpch.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

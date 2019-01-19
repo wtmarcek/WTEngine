@@ -149,6 +149,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\WTEngine.h" />
     <ClInclude Include="src\WTEngine\Application.h" />
     <ClInclude Include="src\WTEngine\Core.h" />
@@ -157,18 +158,21 @@
     <ClInclude Include="src\WTEngine\Events\Event.h" />
     <ClInclude Include="src\WTEngine\Events\KeyEvent.h" />
     <ClInclude Include="src\WTEngine\Events\MouseEvent.h" />
+    <ClInclude Include="src\WTEngine\Layers\Layer.h" />
+    <ClInclude Include="src\WTEngine\Layers\LayerStack.h" />
     <ClInclude Include="src\WTEngine\Log.h" />
-    <ClInclude Include="src\wtfpch.h" />
     <ClInclude Include="src\WTEngine\Window.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\wtfpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\WTEngine\Application.cpp" />
+    <ClCompile Include="src\WTEngine\Layers\Layer.cpp" />
+    <ClCompile Include="src\WTEngine\Layers\LayerStack.cpp" />
     <ClCompile Include="src\WTEngine\Log.cpp" />
     <ClCompile Include="src\wtfpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

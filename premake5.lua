@@ -112,12 +112,15 @@ project "Sandbox"
 		
 	filter "configurations:Debug"
 		defines "WTF_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "WTF_Release"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "WTF_DIST"
+		buildoptions "/MD"
 		optimize "On"
