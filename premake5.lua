@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "WTEngine/vendor/GLFW/include"
+IncludeDir["Glad"] = "WTEngine/vendor/GLAD/include"
 
 include "WTEngine/vendor/GLFW"
+include "WTEngine/vendor/Glad"
 
 project "WTEngine"
 	location "WTEngine"
@@ -37,12 +39,14 @@ project "WTEngine"
 	{
 		"%{prj.name}/vendor/spdlog/include",
 		"%{prj.name}/src",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -54,7 +58,8 @@ project "WTEngine"
 		defines
 		{
 			"WTF_PLATFORM_WINDOWS",
-			"WTF_BUILD_DLL"
+			"WTF_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 			--"WTF_ENABLE_ASSERTS"
 		}
 
