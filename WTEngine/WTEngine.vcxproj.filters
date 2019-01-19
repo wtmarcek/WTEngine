@@ -4,6 +4,9 @@
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
@@ -13,11 +16,17 @@
     <Filter Include="WTEngine\Events">
       <UniqueIdentifier>{0AC23754-764D-A518-7F5E-280DEB680119}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WTEngine\ImGui">
+      <UniqueIdentifier>{905E2D77-7C2C-217D-65C0-91A3512DFDE1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="WTEngine\Layers">
       <UniqueIdentifier>{E5AC1A63-5138-8827-5A49-0B1CC653E427}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
@@ -43,6 +52,9 @@
     <ClInclude Include="src\WTEngine\Events\MouseEvent.h">
       <Filter>WTEngine\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\WTEngine\ImGui\ImGuiLayer.h">
+      <Filter>WTEngine\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\WTEngine\Layers\Layer.h">
       <Filter>WTEngine\Layers</Filter>
     </ClInclude>
@@ -58,11 +70,17 @@
     <ClInclude Include="src\wtfpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\WTEngine\Application.cpp">
       <Filter>WTEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WTEngine\ImGui\ImGuiLayer.cpp">
+      <Filter>WTEngine\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\WTEngine\Layers\Layer.cpp">
       <Filter>WTEngine\Layers</Filter>

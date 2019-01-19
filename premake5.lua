@@ -14,9 +14,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "WTEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "WTEngine/vendor/GLAD/include"
+IncludeDir["ImGui"] = "WTEngine/vendor/imgui"
 
 include "WTEngine/vendor/GLFW"
 include "WTEngine/vendor/Glad"
+include "WTEngine/vendor/imgui"
 
 project "WTEngine"
 	location "WTEngine"
@@ -40,13 +42,15 @@ project "WTEngine"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{prj.name}/src",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
 		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 

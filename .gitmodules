@@ -4,3 +4,6 @@
 [submodule "WTEngine/vendor/GLFW"]
 	path = WTEngine/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
+[submodule "WTEngine/vendor/imgui"]
+	path = WTEngine/vendor/imgui
+	url = https://github.com/TheCherno/imgui
