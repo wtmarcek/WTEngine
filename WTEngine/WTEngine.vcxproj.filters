@@ -22,6 +22,12 @@
     <Filter Include="WTEngine\Layers">
       <UniqueIdentifier>{E5AC1A63-5138-8827-5A49-0B1CC653E427}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WTEngine\Math">
+      <UniqueIdentifier>{7FB958EC-EB79-D422-B4B4-1DA0203419FF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WTEngine\Math\Geometry">
+      <UniqueIdentifier>{BA052646-A6FF-4E98-8F6C-E5A87B05B504}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
@@ -64,6 +70,9 @@
     <ClInclude Include="src\WTEngine\Log.h">
       <Filter>WTEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\WTEngine\Math\Geometry\Triangle.h">
+      <Filter>WTEngine\Math\Geometry</Filter>
+    </ClInclude>
     <ClInclude Include="src\WTEngine\Window.h">
       <Filter>WTEngine</Filter>
     </ClInclude>
@@ -90,6 +99,9 @@
     </ClCompile>
     <ClCompile Include="src\WTEngine\Log.cpp">
       <Filter>WTEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WTEngine\Math\Geometry\Triangle.cpp">
+      <Filter>WTEngine\Math\Geometry</Filter>
     </ClCompile>
     <ClCompile Include="src\wtfpch.cpp" />
   </ItemGroup>
