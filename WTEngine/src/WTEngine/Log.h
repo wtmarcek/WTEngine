@@ -8,7 +8,7 @@
 
 namespace WTF {
 
-	class WTEngine_API Log
+	class WTF_API Log
 	{
 	public:
 		static void Init();

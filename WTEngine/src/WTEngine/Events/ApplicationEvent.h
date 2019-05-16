@@ -6,7 +6,7 @@
 
 namespace WTF {
 
-	class WTEngine_API WindowResizeEvent : public Event
+	class WTF_API WindowResizeEvent : public Event
 	{
 	public:
 		WindowResizeEvent(unsigned int width, unsigned int height)
@@ -29,7 +29,7 @@ namespace WTF {
 		int m_Width, m_Height;
 	};
 
-	class WTEngine_API WindowCloseEvent : public Event
+	class WTF_API WindowCloseEvent : public Event
 	{
 	public:
 		WindowCloseEvent() {}
@@ -38,7 +38,7 @@ namespace WTF {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class WTEngine_API AppTickEvent : public Event
+	class WTF_API AppTickEvent : public Event
 	{
 	public:
 		AppTickEvent() {}
@@ -47,7 +47,7 @@ namespace WTF {
 			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class WTEngine_API AppUpdateEvent : public Event
+	class WTF_API AppUpdateEvent : public Event
 	{
 	public:
 		AppUpdateEvent() {}
@@ -56,7 +56,7 @@ namespace WTF {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class WTEngine_API AppRenderEvent : public Event
+	class WTF_API AppRenderEvent : public Event
 	{
 	public:
 		AppRenderEvent() {}

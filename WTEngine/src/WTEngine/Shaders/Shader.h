@@ -13,7 +13,7 @@ namespace WTF {
 		std::string	FragmentSource;
 	};
 
-	class WTEngine_API Shader
+	class WTF_API Shader
 	{
 	private:
 		std::string m_FilePath;

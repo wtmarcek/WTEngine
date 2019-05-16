@@ -5,7 +5,7 @@
 
 namespace WTF {
 
-	class WTEngine_API Layer
+	class WTF_API Layer
 	{
 	public:
 		Layer(const std::string& name = "Layer");

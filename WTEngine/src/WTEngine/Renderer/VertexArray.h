@@ -6,7 +6,7 @@
 
 namespace WTF {
 
-	class WTEngine_API VertexArray
+	class WTF_API VertexArray
 	{
 	public:
 		VertexArray();

@@ -9,7 +9,7 @@
 
 namespace WTF {
 
-	class WTEngine_API Application
+	class WTF_API Application
 	{
 	public:
 		Application();

@@ -3,7 +3,7 @@
 
 namespace WTF {
 
-	class WTEngine_API VertexBuffer
+	class WTF_API VertexBuffer
 	{
 	public:
 		VertexBuffer(const void* data, unsigned int size);

@@ -32,7 +32,7 @@ namespace WTF {
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-	class WTEngine_API Event
+	class WTF_API Event
 	{
 		friend class EventDispatcher;
 	public:

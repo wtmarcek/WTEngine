@@ -4,7 +4,7 @@
 
 namespace WTF {
 
-	class WTEngine_API IndexBuffer
+	class WTF_API IndexBuffer
 	{
 	public:
 		IndexBuffer(const unsigned int* data, unsigned int size);

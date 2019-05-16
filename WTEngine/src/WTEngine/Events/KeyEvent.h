@@ -6,7 +6,7 @@
 
 namespace WTF {
 
-	class WTEngine_API KeyEvent : public Event
+	class WTF_API KeyEvent : public Event
 	{
 	public:
 		inline int GetKeyyCode() const { return m_KeyCode; }
@@ -20,7 +20,7 @@ namespace WTF {
 		int m_KeyCode;
 	};
 
-	class WTEngine_API KeyPressedEvent : public KeyEvent
+	class WTF_API KeyPressedEvent : public KeyEvent
 	{
 	public:
 		KeyPressedEvent(int keycode, int repeatCount)
@@ -41,7 +41,7 @@ namespace WTF {
 	
 	};
 
-	class WTEngine_API KeyReleasedEvent : public KeyEvent
+	class WTF_API KeyReleasedEvent : public KeyEvent
 	{
 	public:
 		KeyReleasedEvent(int keycode)
@@ -57,7 +57,7 @@ namespace WTF {
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
 
-	class WTEngine_API KeyTypedEvent : public KeyEvent
+	class WTF_API KeyTypedEvent : public KeyEvent
 	{
 	public:
 		KeyTypedEvent(int keycode)

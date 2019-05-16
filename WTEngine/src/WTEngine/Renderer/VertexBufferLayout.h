@@ -31,7 +31,7 @@ namespace WTF {
 		}
 	};
 
-	class WTEngine_API VertexBufferLayout
+	class WTF_API VertexBufferLayout
 	{
 	public:
 		VertexBufferLayout()

@@ -5,7 +5,7 @@
 
 namespace WTF {
 
-	class WTEngine_API GameplayLayer : public Layer
+	class WTF_API GameplayLayer : public Layer
 	{
 	public:
 		GameplayLayer();

@@ -107,6 +107,8 @@
       <Filter>WTEngine</Filter>
     </ClInclude>
     <ClInclude Include="src\wtfpch.h" />
+    <ClInclude Include="src\WTEngine\Input\Input.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
@@ -155,5 +157,6 @@
       <Filter>WTEngine\Shaders</Filter>
     </ClCompile>
     <ClCompile Include="src\wtfpch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>

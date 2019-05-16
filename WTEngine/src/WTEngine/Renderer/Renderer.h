@@ -5,7 +5,7 @@
 
 namespace WTF {
 
-	class WTEngine_API Renderer
+	class WTF_API Renderer
 	{
 	public:
 		void Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader) const;

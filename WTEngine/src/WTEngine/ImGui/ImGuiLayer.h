@@ -9,7 +9,7 @@
 
 namespace WTF {
 
-	class WTEngine_API ImGuiLayer : public Layer
+	class WTF_API ImGuiLayer : public Layer
 	{
 	public:
 		ImGuiLayer();
