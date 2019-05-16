@@ -10,6 +10,10 @@
 	#error WTEngine only supports Windows
 #endif
 
+#ifdef HZ_DEBUG
+	#define HZ_ENABLE_ASSERTS
+#endif
+
 #ifdef WTF_ENABLE_ASSERTS
 	#define WTF_ASSERT(x, ...) { if(!x)) { WTF_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 	#define WTF_CORE_ASSERT(x, ...) { if(!x)) { WTF_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }

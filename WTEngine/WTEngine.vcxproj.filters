@@ -28,6 +28,12 @@
     <Filter Include="WTEngine\Math\Geometry">
       <UniqueIdentifier>{BA052646-A6FF-4E98-8F6C-E5A87B05B504}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WTEngine\Renderer">
+      <UniqueIdentifier>{4C7B2B38-B891-29CE-0109-B5EF6D5EFA55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WTEngine\Shaders">
+      <UniqueIdentifier>{BFFFE8EF-ABF8-0742-D42A-EDC6C082E74D}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
@@ -73,6 +79,30 @@
     <ClInclude Include="src\WTEngine\Math\Geometry\Triangle.h">
       <Filter>WTEngine\Math\Geometry</Filter>
     </ClInclude>
+    <ClInclude Include="src\WTEngine\Renderer\GameplayLayer.h">
+      <Filter>WTEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WTEngine\Renderer\IndexBuffer.h">
+      <Filter>WTEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WTEngine\Renderer\OpenGLDebug.h">
+      <Filter>WTEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WTEngine\Renderer\Renderer.h">
+      <Filter>WTEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WTEngine\Renderer\VertexArray.h">
+      <Filter>WTEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WTEngine\Renderer\VertexBuffer.h">
+      <Filter>WTEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WTEngine\Renderer\VertexBufferLayout.h">
+      <Filter>WTEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WTEngine\Shaders\Shader.h">
+      <Filter>WTEngine\Shaders</Filter>
+    </ClInclude>
     <ClInclude Include="src\WTEngine\Window.h">
       <Filter>WTEngine</Filter>
     </ClInclude>
@@ -102,6 +132,27 @@
     </ClCompile>
     <ClCompile Include="src\WTEngine\Math\Geometry\Triangle.cpp">
       <Filter>WTEngine\Math\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WTEngine\Renderer\GameplayLayer.cpp">
+      <Filter>WTEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WTEngine\Renderer\IndexBuffer.cpp">
+      <Filter>WTEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WTEngine\Renderer\OpenGLDebug.cpp">
+      <Filter>WTEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WTEngine\Renderer\Renderer.cpp">
+      <Filter>WTEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WTEngine\Renderer\VertexArray.cpp">
+      <Filter>WTEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WTEngine\Renderer\VertexBuffer.cpp">
+      <Filter>WTEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WTEngine\Shaders\Shader.cpp">
+      <Filter>WTEngine\Shaders</Filter>
     </ClCompile>
     <ClCompile Include="src\wtfpch.cpp" />
   </ItemGroup>
