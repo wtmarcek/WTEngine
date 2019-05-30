@@ -9,7 +9,7 @@ namespace WTF
 	protected:
 		bool IsKeyPressedImpl(int keycode) const override;
 		bool IsMouseButtonPressedImpl(int button) const override;
-		glm::vec2 GetMousePositionImpl() const override;
+		std::pair<float, float> GetMousePositionImpl() const override;
 		float GetMouseXImpl() const override;
 		float GetMouseYImpl() const override;
 	};

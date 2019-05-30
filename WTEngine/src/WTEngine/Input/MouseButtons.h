@@ -1,0 +1,14 @@
+#pragma once
+
+#define WTF_MOUSE_BUTTON_1         0
+#define WTF_MOUSE_BUTTON_2         1
+#define WTF_MOUSE_BUTTON_3         2
+#define WTF_MOUSE_BUTTON_4         3
+#define WTF_MOUSE_BUTTON_5         4
+#define WTF_MOUSE_BUTTON_6         5
+#define WTF_MOUSE_BUTTON_7         6
+#define WTF_MOUSE_BUTTON_8         7
+#define WTF_MOUSE_BUTTON_LAST      WTF_MOUSE_BUTTON_8
+#define WTF_MOUSE_BUTTON_LEFT      WTF_MOUSE_BUTTON_1
+#define WTF_MOUSE_BUTTON_RIGHT     WTF_MOUSE_BUTTON_2
+#define WTF_MOUSE_BUTTON_MIDDLE    WTF_MOUSE_BUTTON_3

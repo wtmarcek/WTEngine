@@ -1,5 +1,5 @@
 #pragma once
-#include "WTEngine/Core.h"
+//#include "WTEngine/Core.h"
 #include "WTEngine/Layers/Layer.h"
 
 

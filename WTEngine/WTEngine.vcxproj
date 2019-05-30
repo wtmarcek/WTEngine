@@ -161,6 +161,8 @@
     <ClInclude Include="src\WTEngine\Events\MouseEvent.h" />
     <ClInclude Include="src\WTEngine\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\WTEngine\Input\Input.h" />
+    <ClInclude Include="src\WTEngine\Input\KeyCodes.h" />
+    <ClInclude Include="src\WTEngine\Input\MouseButtons.h" />
     <ClInclude Include="src\WTEngine\Layers\Layer.h" />
     <ClInclude Include="src\WTEngine\Layers\LayerStack.h" />
     <ClInclude Include="src\WTEngine\Log.h" />

@@ -73,9 +73,6 @@
     <ClInclude Include="src\WTEngine\Layers\LayerStack.h">
       <Filter>WTEngine\Layers</Filter>
     </ClInclude>
-    <ClInclude Include="src\WTEngine\Log.h">
-      <Filter>WTEngine</Filter>
-    </ClInclude>
     <ClInclude Include="src\WTEngine\Math\Geometry\Triangle.h">
       <Filter>WTEngine\Math\Geometry</Filter>
     </ClInclude>
@@ -109,6 +106,11 @@
     <ClInclude Include="src\wtfpch.h" />
     <ClInclude Include="src\WTEngine\Input\Input.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\WTEngine\Log.h">
+      <Filter>WTEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WTEngine\Input\KeyCodes.h" />
+    <ClInclude Include="src\WTEngine\Input\MouseButtons.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
@@ -128,9 +130,6 @@
     </ClCompile>
     <ClCompile Include="src\WTEngine\Layers\LayerStack.cpp">
       <Filter>WTEngine\Layers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\WTEngine\Log.cpp">
-      <Filter>WTEngine</Filter>
     </ClCompile>
     <ClCompile Include="src\WTEngine\Math\Geometry\Triangle.cpp">
       <Filter>WTEngine\Math\Geometry</Filter>
@@ -158,5 +157,8 @@
     </ClCompile>
     <ClCompile Include="src\wtfpch.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\WTEngine\Log.cpp">
+      <Filter>WTEngine</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

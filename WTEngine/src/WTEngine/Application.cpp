@@ -2,9 +2,9 @@
 
 #include "wtfpch.h"
 #include "Application.h"
+#include "Input/Input.h"
 
 #include <glad/glad.h>
-
 
 namespace WTF {
 
@@ -39,8 +39,6 @@ namespace WTF {
 				break;
 			}
 		}
-
-		WTF_CORE_TRACE("{0}", e);
 	}
 
 	void Application::PushLayer(Layer * layer)
@@ -66,10 +64,8 @@ namespace WTF {
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			for (Layer* layer : m_LayerStack)
-			{
 				layer->OnUpdate();
-			}
-
+			
 			m_Window->OnUpdate();
 		}
 	}

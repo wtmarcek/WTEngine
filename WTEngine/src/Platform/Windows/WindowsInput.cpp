@@ -22,21 +22,21 @@ namespace WTF
 		return state == GLFW_PRESS || state == GLFW_REPEAT;
 	}
 
-	glm::vec2 WindowsInput::GetMousePositionImpl() const
+	std::pair<float, float> WindowsInput::GetMousePositionImpl() const
 	{
 		GLFWwindow* window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 		double posX, posY;
-		glfwGetCursorPos(window, &posX, &posY);
-		return glm::vec2(posX, posY);
+		glfwGetCursorPos(window, &posX, &posY);		
+		return std::make_pair((float)posX, (float)posY);;
 	}
 
 	float WindowsInput::GetMouseXImpl() const
 	{
-		return GetMousePosition().x;
+		return GetMousePosition().first;
 	}
 
 	float WindowsInput::GetMouseYImpl() const
 	{
-		return GetMousePosition().y;
+		return GetMousePosition().second;
 	}
 }
