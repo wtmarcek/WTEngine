@@ -1,16 +1,24 @@
 #pragma once
 
 #include <WTEngine.h>
+#include "imgui/imgui.h"
 
 class ExampleLayer : public WTF::Layer
 {
 public:
-	ExampleLayer() : Layer("Example") {}
 
+	ExampleLayer() : Layer("Example")
+	{
+	}
+	
 	void OnUpdate() override
 	{
 		if (WTF::Input::IsKeyPressed(WTF_KEY_TAB))
 			WTF_INFO("Tab");
+	}
+
+	void OnImGuiRender() override
+	{
 	}
 
 	void OnEvent(WTF::Event& event) override
@@ -25,7 +33,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new WTF::ImGuiLayer());
 	}
 
 	~Sandbox()

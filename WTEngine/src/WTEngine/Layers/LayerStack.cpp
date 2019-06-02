@@ -3,15 +3,11 @@
 
 
 
-WTF::LayerStack::LayerStack()
-{
-	m_LayerInsert = m_Layers.begin();
-}
-
+WTF::LayerStack::LayerStack() { }
 
 WTF::LayerStack::~LayerStack()
 {
-	for (Layer* layer : m_Layers)
+	for (Layer* layer : layers)
 	{
 		delete layer;
 	}
@@ -19,29 +15,30 @@ WTF::LayerStack::~LayerStack()
 
 void WTF::LayerStack::PushLayer(Layer * layer)
 {
-	m_LayerInsert = m_Layers.emplace(m_LayerInsert, layer);
+	layers.emplace(layers.begin() + layerInsertIndex, layer);
+	layerInsertIndex++;
 }
 
 void WTF::LayerStack::PushOverlay(Layer * overlay)
 {
-	m_Layers.emplace_back(overlay);
+	layers.emplace_back(overlay);
 }
 
 void WTF::LayerStack::PopLayer(Layer * layer)
 {
-	auto iter = std::find(m_Layers.begin(), m_Layers.end(), layer);
-	if (iter != m_Layers.end())
+	auto iter = std::find(layers.begin(), layers.end(), layer);
+	if (iter != layers.end())
 	{
-		m_Layers.erase(iter);
-		m_LayerInsert--;
+		layers.erase(iter);
+		layerInsertIndex--;
 	}
 }
 
 void WTF::LayerStack::PopOverlay(Layer * overlay)
 {
-	auto iter = std::find(m_Layers.begin(), m_Layers.end(), overlay);
-	if (iter != m_Layers.end())
+	auto iter = std::find(layers.begin(), layers.end(), overlay);
+	if (iter != layers.end())
 	{
-		m_Layers.erase(iter);
+		layers.erase(iter);
 	}
 }

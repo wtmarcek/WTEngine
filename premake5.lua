@@ -16,6 +16,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "WTEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "WTEngine/vendor/GLAD/include"
 IncludeDir["ImGui"] = "WTEngine/vendor/imgui"
+IncludeDir["glm"] = "WTEngine/vendor/glm"
 
 include "WTEngine/vendor/GLFW"
 include "WTEngine/vendor/Glad"
@@ -37,6 +38,8 @@ project "WTEngine"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -46,7 +49,8 @@ project "WTEngine"
 		"%{prj.name}/src",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -67,12 +71,10 @@ project "WTEngine"
 			"WTF_PLATFORM_WINDOWS",
 			"WTF_BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
-			--"WTF_ENABLE_ASSERTS"
 		}
 
 		postbuildcommands
 		{
-			--("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
 			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
@@ -109,12 +111,15 @@ project "Sandbox"
 	includedirs
 	{
 		"WTEngine/vendor/spdlog/include",
-		"WTEngine/src"
+		"WTEngine/src",
+		"WTEngine/vendor",
+		"%{IncludeDir.glm}"
 	}
 
 	links
 	{
-		"WTEngine"
+		"WTEngine",
+		"ImGui"
 	}
 
 	filter "system:windows"

@@ -6,6 +6,7 @@
 #include "WTEngine/Events/Event.h"
 #include "WTEngine/Events/ApplicationEvent.h"
 
+#include "WTEngine//ImGui/ImGuiLayer.h"
 
 namespace WTF {
 
@@ -22,13 +23,16 @@ namespace WTF {
 		void PushOverlay(Layer* layer);
 
 		inline static Application& Get() { return *s_Instance; }
-		inline Window& GetWindow() { return *m_Window; }
+		inline Window& GetWindow() { return *window; }
 	private:
-		std::unique_ptr<Window> m_Window;
+		std::unique_ptr<Window> window;
+		ImGuiLayer* imGuiLayer;
+		
+
 		bool m_Running = true;
 		
 		bool OnWindowClose(WindowCloseEvent& e);
-		LayerStack m_LayerStack;
+		LayerStack layerStack;
 
 	private:
 		static Application* s_Instance;

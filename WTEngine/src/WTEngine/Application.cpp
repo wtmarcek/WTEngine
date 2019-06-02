@@ -18,8 +18,11 @@ namespace WTF {
 
 		s_Instance = this;
 
-		m_Window = std::unique_ptr<Window>(Window::Create());
-		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
+		window = std::unique_ptr<Window>(Window::Create());
+		window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
+
+		imGuiLayer = new ImGuiLayer();
+		PushOverlay(imGuiLayer);
 	}
 
 	Application::~Application()
@@ -31,7 +34,7 @@ namespace WTF {
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClose));
 
-		for (auto iter = m_LayerStack.end(); iter != m_LayerStack.begin();)
+		for (auto iter = layerStack.end(); iter != layerStack.begin();)
 		{
 			(*--iter)->OnEvent(e);
 			if (e.m_Handled)
@@ -43,13 +46,13 @@ namespace WTF {
 
 	void Application::PushLayer(Layer * layer)
 	{
-		m_LayerStack.PushLayer(layer);
+		layerStack.PushLayer(layer);
 		layer->OnAttach();
 	}
 	
 	void Application::PushOverlay(Layer * layer)
 	{
-		m_LayerStack.PushOverlay(layer);
+		layerStack.PushOverlay(layer);
 		layer->OnAttach();
 	}
 
@@ -63,10 +66,15 @@ namespace WTF {
 			glClearColor(0, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
-			for (Layer* layer : m_LayerStack)
+			for (Layer* layer : layerStack)
 				layer->OnUpdate();
 			
-			m_Window->OnUpdate();
+			imGuiLayer->Begin();
+			for (auto layer : layerStack)
+				layer->OnImGuiRender();
+			imGuiLayer->End();
+
+			window->OnUpdate();
 		}
 	}
 
