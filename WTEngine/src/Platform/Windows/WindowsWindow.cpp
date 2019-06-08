@@ -1,9 +1,12 @@
+#pragma once
+
 #include "wtfpch.h"
 #include "WindowsWindow.h"
 
 #include "WTEngine/Events/ApplicationEvent.h"
 #include "WTEngine/Events/KeyEvent.h"
 #include "WTEngine/Events/MouseEvent.h"
+#include "Platform/OpenGL/OpenGLContext.h"
 
 #include <glad/glad.h>
 
@@ -50,9 +53,10 @@ namespace WTF {
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		WTF_CORE_ASSERT(status, "Failed to initialize Glad!");
+
+		graphicsContext = std::make_unique<OpenGLContext>(m_Window);
+		graphicsContext->Initialize();
+				
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
@@ -154,7 +158,7 @@ namespace WTF {
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		graphicsContext->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)

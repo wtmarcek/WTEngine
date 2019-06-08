@@ -1,8 +1,12 @@
 #pragma once
 
 #include "WTEngine/Window.h"
+#include "WTEngine/Renderer/GraphicsContext.h"
 
+#include <memory>
 #include <GLFW/glfw3.h>
+
+using namespace std;
 
 namespace WTF {
 
@@ -27,6 +31,7 @@ namespace WTF {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		unique_ptr<GraphicsContext> graphicsContext;
 
 		struct WindowData
 		{
