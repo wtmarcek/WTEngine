@@ -1,14 +1,19 @@
 #pragma once
 
 #ifdef WTF_PLATFORM_WINDOWS
-	#ifdef WTF_BUILD_DLL
+#if WTF_DYNAMIC_LINK
+	#ifdef HZ_BUILD_DLL
 		#define WTF_API __declspec(dllexport)
 	#else
 		#define WTF_API __declspec(dllimport)
 	#endif
 #else
-	#error WTEngine only supports Windows
+    #define WTF_API
 #endif
+#else
+	#error WTEngine only supports Windows!
+#endif
+
 
 #ifdef WTF_DEBUG
 	#define WTF_ENABLE_ASSERTS
@@ -27,3 +32,5 @@
 #define BIT(x) (1 << x)
 
 #define WTF_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+
+

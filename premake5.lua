@@ -24,9 +24,11 @@ include "WTEngine/vendor/imgui"
 
 project "WTEngine"
 	location "WTEngine"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
+
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -41,7 +43,12 @@ project "WTEngine"
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
-
+	
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
+	}
+	
 	includedirs
 	{
 		"%{prj.name}/vendor/spdlog/include",
@@ -62,7 +69,6 @@ project "WTEngine"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		staticruntime "On"
 		systemversion "latest"
 
@@ -73,31 +79,27 @@ project "WTEngine"
 			"GLFW_INCLUDE_NONE"
 		}
 
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
-		}
-
 	filter "configurations:Debug"
 		defines "WTF_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "WTF_Release"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "WTF_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -119,11 +121,9 @@ project "Sandbox"
 	links
 	{
 		"WTEngine",
-		"ImGui"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines
@@ -134,14 +134,14 @@ project "Sandbox"
 	filter "configurations:Debug"
 		defines "WTF_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "WTF_Release"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "WTF_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"

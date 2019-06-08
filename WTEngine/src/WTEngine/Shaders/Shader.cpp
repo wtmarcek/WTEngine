@@ -100,7 +100,7 @@ namespace WTF {
 		GLCall(glGetShaderiv(id, GL_COMPILE_STATUS, &result));
 		if (result == GL_FALSE)
 		{
-			int length;
+			int length = 0;
 			GLCall(glGetShaderiv(id, GL_INFO_LOG_LENGTH, &result));
 			std::unique_ptr<char> message = std::make_unique<char>();
 			GLCall(glGetShaderInfoLog(id, length, &length, message.get()));
