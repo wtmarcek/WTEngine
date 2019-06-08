@@ -19,6 +19,9 @@ public:
 
 	void OnImGuiRender() override
 	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
 	}
 
 	void OnEvent(WTF::Event& event) override
