@@ -10,19 +10,67 @@ namespace WTF {
 
 #define BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
 
-	Application* Application::s_Instance = nullptr;
+	Application* Application::instance = nullptr;
 
 	Application::Application()
 	{
-		WTF_CORE_ASSERT(!s_Instance, "Appliaction already exsists!");
+		WTF_CORE_ASSERT(!instance, "Appliaction already exsists!");
 
-		s_Instance = this;
+		instance = this;
 
 		window = std::unique_ptr<Window>(Window::Create());
 		window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
 
 		imGuiLayer = new ImGuiLayer();
 		PushOverlay(imGuiLayer);
+
+		//VertexArray
+		glGenVertexArrays(1, &vertexArray);
+		glBindVertexArray(vertexArray);
+		//VertexBuffer
+		glGenBuffers(1, &vertexBuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+		//IndexBuffer
+		float vertices[3 * 3] = {
+			-0.5f, -0.5f, 0.0f,
+			 0.5f, -0.5f, 0.0f,
+			 0.0f,  0.5f, 0.0f
+		};
+
+		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+
+		glGenBuffers(1, &indexBuffer);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+
+		unsigned int indices[3] = { 0, 1, 2 };
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+		
+		string vertexSource = R"(
+			#version 330 core
+
+			layout (location = 0) in vec3 position;
+				
+			void main()
+			{
+				gl_Position = vec4(position, 1.0);
+			}
+		)";
+
+		string fragmentSource = R"(
+			#version 330 core
+
+			layout (location = 0) out vec4 color;
+			
+			void main()
+			{
+				color = vec4(1.0, 1.0, 0.0, 1.0);
+			}
+		)";
+
+		shader = make_unique<Shader>(vertexSource, fragmentSource);
 	}
 
 	Application::~Application()
@@ -49,7 +97,7 @@ namespace WTF {
 		layerStack.PushLayer(layer);
 		layer->OnAttach();
 	}
-	
+
 	void Application::PushOverlay(Layer * layer)
 	{
 		layerStack.PushOverlay(layer);
@@ -61,14 +109,18 @@ namespace WTF {
 		WindowResizeEvent windowResizeEvent(1280, 720);
 		WTF_TRACE(windowResizeEvent);
 
-		while (m_Running)
+		while (isRunning)
 		{
-			glClearColor(0, 0, 1, 1);
+			glClearColor(0, 0, 0.5, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			shader->Bind();
+			glBindVertexArray(vertexArray);
+			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 
 			for (Layer* layer : layerStack)
 				layer->OnUpdate();
-			
+
 			imGuiLayer->Begin();
 			for (auto layer : layerStack)
 				layer->OnImGuiRender();
@@ -80,7 +132,7 @@ namespace WTF {
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)
 	{
-		m_Running = false;
+		isRunning = false;
 		return true;
 	}
 }

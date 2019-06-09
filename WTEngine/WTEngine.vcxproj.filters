@@ -117,26 +117,8 @@
     <ClInclude Include="src\WTEngine\Renderer\GameplayLayer.h">
       <Filter>src\WTEngine\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\WTEngine\Renderer\IndexBuffer.h">
-      <Filter>src\WTEngine\Renderer</Filter>
-    </ClInclude>
     <ClInclude Include="src\WTEngine\Renderer\OpenGLDebug.h">
       <Filter>src\WTEngine\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\WTEngine\Renderer\Renderer.h">
-      <Filter>src\WTEngine\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\WTEngine\Renderer\VertexArray.h">
-      <Filter>src\WTEngine\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\WTEngine\Renderer\VertexBuffer.h">
-      <Filter>src\WTEngine\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\WTEngine\Renderer\VertexBufferLayout.h">
-      <Filter>src\WTEngine\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\WTEngine\Shaders\Shader.h">
-      <Filter>src\WTEngine\Shaders</Filter>
     </ClInclude>
     <ClInclude Include="src\WTEngine\Window.h">
       <Filter>src\WTEngine</Filter>
@@ -1232,6 +1214,7 @@
     </ClInclude>
     <ClInclude Include="src\WTEngine\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\WTEngine\Renderer\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
@@ -1264,27 +1247,17 @@
     <ClCompile Include="src\WTEngine\Renderer\GameplayLayer.cpp">
       <Filter>src\WTEngine\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\WTEngine\Renderer\IndexBuffer.cpp">
-      <Filter>src\WTEngine\Renderer</Filter>
-    </ClCompile>
     <ClCompile Include="src\WTEngine\Renderer\OpenGLDebug.cpp">
       <Filter>src\WTEngine\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\WTEngine\Renderer\Renderer.cpp">
-      <Filter>src\WTEngine\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\WTEngine\Renderer\VertexArray.cpp">
-      <Filter>src\WTEngine\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\WTEngine\Renderer\VertexBuffer.cpp">
-      <Filter>src\WTEngine\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\WTEngine\Shaders\Shader.cpp">
-      <Filter>src\WTEngine\Shaders</Filter>
     </ClCompile>
     <ClCompile Include="src\wtfpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\WTEngine\Renderer\Shader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\WTEngine\Shaders\basic.frag" />
+    <None Include="src\WTEngine\Shaders\basic.vert" />
   </ItemGroup>
 </Project>

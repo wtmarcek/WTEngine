@@ -54,19 +54,19 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>..\bin\Debug-windows-x86_64\WTEngine\</OutDir>
+    <OutDir>$(SolutionDir)</OutDir>
     <IntDir>..\bin-int\Debug-windows-x86_64\WTEngine\</IntDir>
     <TargetName>WTEngine</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\bin\Release-windows-x86_64\WTEngine\</OutDir>
+    <OutDir>$(SolutionDir)</OutDir>
     <IntDir>..\bin-int\Release-windows-x86_64\WTEngine\</IntDir>
     <TargetName>WTEngine</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
-    <OutDir>..\bin\Dist-windows-x86_64\WTEngine\</OutDir>
+    <OutDir>$(SolutionDir)</OutDir>
     <IntDir>..\bin-int\Dist-windows-x86_64\WTEngine\</IntDir>
     <TargetName>WTEngine</TargetName>
     <TargetExt>.lib</TargetExt>
@@ -161,13 +161,8 @@
     <ClInclude Include="src\WTEngine\Log.h" />
     <ClInclude Include="src\WTEngine\Math\Geometry\Triangle.h" />
     <ClInclude Include="src\WTEngine\Renderer\GameplayLayer.h" />
-    <ClInclude Include="src\WTEngine\Renderer\IndexBuffer.h" />
     <ClInclude Include="src\WTEngine\Renderer\OpenGLDebug.h" />
-    <ClInclude Include="src\WTEngine\Renderer\Renderer.h" />
-    <ClInclude Include="src\WTEngine\Renderer\VertexArray.h" />
-    <ClInclude Include="src\WTEngine\Renderer\VertexBuffer.h" />
-    <ClInclude Include="src\WTEngine\Renderer\VertexBufferLayout.h" />
-    <ClInclude Include="src\WTEngine\Shaders\Shader.h" />
+    <ClInclude Include="src\WTEngine\Renderer\Shader.h" />
     <ClInclude Include="src\WTEngine\Window.h" />
     <ClInclude Include="src\wtfpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -545,12 +540,8 @@
     <ClCompile Include="src\WTEngine\Log.cpp" />
     <ClCompile Include="src\WTEngine\Math\Geometry\Triangle.cpp" />
     <ClCompile Include="src\WTEngine\Renderer\GameplayLayer.cpp" />
-    <ClCompile Include="src\WTEngine\Renderer\IndexBuffer.cpp" />
     <ClCompile Include="src\WTEngine\Renderer\OpenGLDebug.cpp" />
-    <ClCompile Include="src\WTEngine\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\WTEngine\Renderer\VertexArray.cpp" />
-    <ClCompile Include="src\WTEngine\Renderer\VertexBuffer.cpp" />
-    <ClCompile Include="src\WTEngine\Shaders\Shader.cpp" />
+    <ClCompile Include="src\WTEngine\Renderer\Shader.cpp" />
     <ClCompile Include="src\wtfpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
@@ -565,6 +556,10 @@
     <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
       <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\WTEngine\Shaders\basic.frag" />
+    <None Include="src\WTEngine\Shaders\basic.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
