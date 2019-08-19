@@ -6,7 +6,6 @@
 class ExampleLayer : public WTF::Layer
 {
 public:
-
 	ExampleLayer() : Layer("Example")
 	{
 	}

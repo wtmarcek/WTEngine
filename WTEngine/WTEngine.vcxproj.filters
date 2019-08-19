@@ -1214,7 +1214,12 @@
     </ClInclude>
     <ClInclude Include="src\WTEngine\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="src\WTEngine\Renderer\Shader.h" />
+    <ClInclude Include="src\WTEngine\Renderer\Buffers\Buffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\Buffers\OpenGLBuffer.h" />
+    <ClInclude Include="src\WTEngine\Renderer\Renderer.h" />
+    <ClInclude Include="src\WTEngine\Renderer\Buffers\BufferLayout.h" />
+    <ClInclude Include="src\WTEngine\Renderer\Shaders\ShaderDataType.h" />
+    <ClInclude Include="src\WTEngine\Renderer\Shaders\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
@@ -1254,7 +1259,10 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="src\WTEngine\Renderer\Shader.cpp" />
+    <ClCompile Include="src\WTEngine\Renderer\Buffers\Buffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\Buffers\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\WTEngine\Renderer\Shaders\Shader.cpp" />
+    <ClCompile Include="src\WTEngine\Renderer\Shaders\ShaderDataType.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\WTEngine\Shaders\basic.frag" />

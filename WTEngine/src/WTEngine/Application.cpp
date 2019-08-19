@@ -3,6 +3,9 @@
 #include "wtfpch.h"
 #include "Application.h"
 #include "Input/Input.h"
+#include "WTEngine/Renderer/Buffers/BufferLayout.h"
+#include "WTEngine/Renderer/Shaders/ShaderDataType.h"
+#include "WTEngine/Renderer/Shaders/Shader.h"
 
 #include <glad/glad.h>
 
@@ -11,7 +14,7 @@ namespace WTF {
 #define BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
 
 	Application* Application::instance = nullptr;
-
+		
 	Application::Application()
 	{
 		WTF_CORE_ASSERT(!instance, "Appliaction already exsists!");
@@ -27,26 +30,42 @@ namespace WTF {
 		//VertexArray
 		glGenVertexArrays(1, &vertexArray);
 		glBindVertexArray(vertexArray);
-		//VertexBuffer
-		glGenBuffers(1, &vertexBuffer);
-		glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-		//IndexBuffer
+		
+
 		float vertices[3 * 3] = {
 			-0.5f, -0.5f, 0.0f,
 			 0.5f, -0.5f, 0.0f,
 			 0.0f,  0.5f, 0.0f
 		};
+		vertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+		
+		BufferLayout layout = 
+		{
+			{ Float3, "position", false },
+			{ Float4, "color", false },
+			{ Float3, "normal", true }
+		};
 
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+		vertexBuffer->SetLayout(layout);
 
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
-
-		glGenBuffers(1, &indexBuffer);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-
-		unsigned int indices[3] = { 0, 1, 2 };
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+		uint32_t counter = 0;
+		for (const auto& element : layout)
+		{
+			glEnableVertexAttribArray(counter);
+			glVertexAttribPointer
+			(
+				counter,
+				element.type.GetComponentCount(),
+				element.type.ConvertToGLEnum(),
+				element.isNormalized ? GL_TRUE : GL_FALSE, 
+				layout.GetStride(), 
+				(const void*)element.offset
+			);
+			counter++;
+		}
+		
+		uint32_t indices[3] = { 0, 1, 2 };		
+		indexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		
 		string vertexSource = R"(
 			#version 330 core
@@ -116,7 +135,7 @@ namespace WTF {
 
 			shader->Bind();
 			glBindVertexArray(vertexArray);
-			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+			glDrawElements(GL_TRIANGLES, indexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 			for (Layer* layer : layerStack)
 				layer->OnUpdate();

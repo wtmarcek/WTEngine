@@ -4,8 +4,10 @@
 #include "Window.h"
 #include "WTEngine/Layers/LayerStack.h"
 #include "WTEngine/Events/Event.h"
+
 #include "WTEngine/Events/ApplicationEvent.h"
-#include "WTEngine/Renderer/Shader.h"
+#include "WTEngine/Renderer/Shaders/Shader.h"
+#include "WTEngine/Renderer/Buffers/Buffer.h"
 
 #include "WTEngine//ImGui/ImGuiLayer.h"
 
@@ -37,8 +39,10 @@ namespace WTF {
 		bool OnWindowClose(WindowCloseEvent& e);
 		LayerStack layerStack;
 
-		unsigned int vertexArray, vertexBuffer, indexBuffer;
+		unsigned int vertexArray;
 		unique_ptr<Shader> shader;
+		unique_ptr<VertexBuffer> vertexBuffer;
+		unique_ptr<IndexBuffer> indexBuffer;
 
 	private:
 		static Application* instance;
